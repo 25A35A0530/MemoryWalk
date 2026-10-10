@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MemoryWalk — Notice the real world</title>
+
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+
+<body>
+
+    <div class="app-shell">
+
+        <!-- ============================= -->
+        <!-- TOP NAVIGATION -->
+        <!-- ============================= -->
+
+        <header class="topbar">
+
+            <button class="brand" id="homeBtn" type="button">
+                <span class="brand-mark">🌿</span>
+                <span>MemoryWalk</span>
+            </button>
+
+            <button class="garden-button" id="gardenHomeBtn" type="button">
+                <span>🌱</span>
+                Garden
+                <span class="memory-count" id="homeCount">0</span>
+            </button>
+
+        </header>
+
+
+        <!-- ============================= -->
+        <!-- HOME -->
+        <!-- ============================= -->
+
+        <section class="screen active" id="home">
+
+            <div class="home-container">
+
+                <div class="hero">
+
+                    <div class="hero-orbit">
+                        <span>✦</span>
+                        <span>🌿</span>
+                        <span>✦</span>
+                    </div>
+
+                    <div class="eyebrow">
+                        LOCAL AI · REAL WORLD
+                    </div>
+
+                    <div class="hero-symbol">
+                        🌱
+                    </div>
+
+                    <h1>
+                        Look up.<br>
+                        <em>Look around.</em>
+                    </h1>
+
+                    <p class="hero-description">
+                        A local AI gives you one small thing to notice.
+                        Then you put the phone away and make a real-world memory.
+                    </p>
+
+                </div>
+
+
+                <!-- EXPERIENCE SETUP -->
+
+                <div class="setup-card">
+
+                    <div class="setup-section">
+
+                        <div class="section-label">
+                            HOW MUCH TIME DO YOU HAVE?
+                        </div>
+
+                        <div class="choice-row">
+
+                            <button class="choice-button time-choice" data-time="10" type="button">
+                                <strong>10</strong>
+                                <span>minutes</span>
+                            </button>
+
+                            <button class="choice-button time-choice selected" data-time="15" type="button">
+                                <strong>15</strong>
+                                <span>minutes</span>
+                            </button>
+
+                            <button class="choice-button time-choice" data-time="30" type="button">
+                                <strong>30</strong>
+                                <span>minutes</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="setup-section">
+
+                        <div class="section-label">
+                            WHAT DO YOU WANT TO NOTICE?
+                        </div>
+
+                        <div class="focus-grid">
+
+                            <button class="focus-choice" data-focus="nature" type="button">
+
+                                <span class="focus-icon">🌿</span>
+
+                                <span class="focus-content">
+                                    <strong>Nature</strong>
+                                    <small>Plants, light & movement</small>
+                                </span>
+
+                            </button>
+
+
+                            <button class="focus-choice" data-focus="sounds" type="button">
+
+                                <span class="focus-icon">👂</span>
+
+                                <span class="focus-content">
+                                    <strong>Sounds</strong>
+                                    <small>Listen to the world</small>
+                                </span>
+
+                            </button>
+
+
+                            <button class="focus-choice" data-focus="details" type="button">
+
+                                <span class="focus-icon">👀</span>
+
+                                <span class="focus-content">
+                                    <strong>Tiny details</strong>
+                                    <small>Notice what others miss</small>
+                                </span>
+
+                            </button>
+
+
+                            <button class="focus-choice selected" data-focus="surprise" type="button">
+
+                                <span class="focus-icon">🎲</span>
+
+                                <span class="focus-content">
+                                    <strong>Surprise me</strong>
+                                    <small>Let curiosity choose</small>
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="primary-button" id="generateBtn" type="button">
+
+                        <span>Create my mission</span>
+                        <span class="button-arrow">→</span>
+
+                    </button>
+
+                </div>
+
+
+                <!-- LOCAL AI STATUS -->
+
+                <div class="local-status">
+
+                    <span class="status-dot"></span>
+
+                    <span>
+                        Runs locally with Ollama
+                    </span>
+
+                    <span class="status-divider">•</span>
+
+                    <span>
+                        No cloud AI required
+                    </span>
+
+                </div>
+
+
+                <button class="garden-link" id="gardenTextBtn" type="button">
+
+                    <span>Open my Memory Garden</span>
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- MISSION -->
+        <!-- ============================= -->
+
+        <section class="screen" id="mission">
+
+            <div class="screen-container">
+
+                <div class="screen-topbar">
+
+                    <button class="back-button" data-back="home" type="button">
+                        ←
+                    </button>
+
+                    <span class="screen-label">
+                        YOUR MISSION
+                    </span>
+
+                </div>
+
+
+                <div class="mission-container">
+
+                    <div class="mission-card">
+
+                        <div class="mission-decoration">
+                            <span>✦</span>
+                            <span>🌿</span>
+                            <span>✦</span>
+                        </div>
+
+                        <div class="mission-tag">
+                            TODAY'S OBSERVATION
+                        </div>
+
+                        <h2 id="missionTitle">
+                            Preparing your mission...
+                        </h2>
+
+                        <div class="mission-divider"></div>
+
+                        <p id="missionText">
+                            Your local AI is preparing something for you to notice.
+                        </p>
+
+
+                        <div class="mission-meta">
+
+                            <div class="meta-pill">
+                                <span>⏱</span>
+                                <span>
+                                    <strong id="missionTime">15</strong>
+                                    minutes
+                                </span>
+                            </div>
+
+                            <div class="meta-pill" id="missionFocus">
+                                🎲 Surprise
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="phone-note">
+
+                        <span class="phone-note-icon">
+                            📵
+                        </span>
+
+                        <div>
+                            <strong>One important rule</strong>
+                            <p>
+                                Once you start, you won't need your phone.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <button class="primary-button" id="startBtn" type="button">
+
+                        <span>Start mission</span>
+                        <span class="button-arrow">→</span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- PHONE DOWN -->
+        <!-- ============================= -->
+
+        <section class="screen centered-screen" id="phoneDown">
+
+            <div class="phone-down-container">
+
+                <div class="phone-icon">
+                    📵
+                </div>
+
+                <div class="eyebrow">
+                    MISSION STARTED
+                </div>
+
+                <h1>
+                    Phone down.
+                </h1>
+
+                <p class="phone-down-description">
+                    Go outside.<br>
+                    Let the world become the screen.
+                </p>
+
+
+                <div class="timer-wrapper">
+
+                    <div class="timer" id="timer">
+                        15:00
+                    </div>
+
+                    <span class="timer-label">
+                        YOUR WALK
+                    </span>
+
+                </div>
+
+
+                <p class="timer-hint">
+                    Notice things you normally ignore.
+                </p>
+
+
+                <button class="secondary-button" id="backBtn" type="button">
+
+                    I'm back
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- REFLECTION -->
+        <!-- ============================= -->
+
+        <section class="screen" id="reflection">
+
+            <div class="screen-container">
+
+                <div class="screen-topbar">
+
+                    <button class="back-button" data-back="home" type="button">
+                        ←
+                    </button>
+
+                    <span class="screen-label">
+                        WELCOME BACK
+                    </span>
+
+                </div>
+
+
+                <div class="content-container narrow">
+
+                    <div class="reflection-header">
+
+                        <div class="eyebrow">
+                            THE MEMORY PART
+                        </div>
+
+                        <h1>
+                            What did you notice?
+                        </h1>
+
+                        <p>
+                            Don't try to give the perfect answer.
+                            Remember what was actually there.
+                        </p>
+
+                    </div>
+
+
+                    <div id="questions" class="questions-container">
+
+                        <div class="loading-card">
+
+                            <div class="loading-spinner"></div>
+
+                            <span>
+                                Creating questions from your walk...
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="primary-button" id="evaluateBtn" type="button">
+
+                        <span>Reflect on my experience</span>
+                        <span class="button-arrow">→</span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- RESULT -->
+        <!-- ============================= -->
+
+        <section class="screen centered-screen" id="result">
+
+            <div class="result-container">
+
+                <div class="result-icon" id="resultIcon">
+                    🌱
+                </div>
+
+                <div class="eyebrow">
+                    A MOMENT WORTH KEEPING
+                </div>
+
+                <h1 id="resultTitle">
+                    You noticed something.
+                </h1>
+
+
+                <div class="score-container">
+
+                    <span class="score-number" id="score">
+                        --
+                    </span>
+
+                    <span class="score-total">
+                        /100
+                    </span>
+
+                </div>
+
+
+                <p class="result-feedback" id="feedback">
+                </p>
+
+
+                <div class="takeaway-card">
+
+                    <div class="takeaway-heading">
+                        <span>🌱</span>
+                        <span>Your takeaway</span>
+                    </div>
+
+                    <p id="takeaway">
+                    </p>
+
+                </div>
+
+
+                <div class="result-actions">
+
+                    <button class="primary-button" id="saveMemoryBtn" type="button">
+
+                        <span>Save to Memory Garden</span>
+                        <span>🌱</span>
+
+                    </button>
+
+
+                    <button class="secondary-button" id="gardenResultBtn" type="button">
+
+                        View Memory Garden
+
+                    </button>
+
+
+                    <button class="text-button" id="anotherBtn" type="button">
+
+                        Another mission ↻
+
+                    </button>
+
+                </div>
+
+
+                <div class="save-message" id="saveMessage">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- MEMORY GARDEN -->
+        <!-- ============================= -->
+
+        <section class="screen" id="garden">
+
+            <div class="screen-container">
+
+                <div class="screen-topbar">
+
+                    <button class="back-button" data-back="home" type="button">
+                        ←
+                    </button>
+
+                    <span class="screen-label">
+                        YOUR MEMORY GARDEN
+                    </span>
+
+                </div>
+
+
+                <div class="garden-container">
+
+                    <!-- GARDEN INTRO -->
+
+                    <div class="garden-header">
+
+                        <div class="garden-symbol">
+                            🌳
+                        </div>
+
+                        <div class="eyebrow">
+                            YOUR REAL-WORLD ARCHIVE
+                        </div>
+
+                        <h1>
+                            A garden of moments.
+                        </h1>
+
+                        <p>
+                            Every plant represents something you stopped
+                            long enough to notice.
+                        </p>
+
+                    </div>
+
+
+                    <!-- STATISTICS -->
+
+                    <div class="garden-stats" id="gardenStats">
+                    </div>
+
+
+                    <!-- PERSONAL OBSERVATION PATTERN -->
+
+                    <div class="pattern-card" id="patternPanel">
+                    </div>
+
+
+                    <!-- LIVING GARDEN -->
+
+                    <div class="garden-section-heading">
+
+                        <div>
+                            <span class="eyebrow">
+                                YOUR GROWING GARDEN
+                            </span>
+
+                            <h2>
+                                Little moments, growing together.
+                            </h2>
+                        </div>
+
+                    </div>
+
+
+                    <div class="plant-garden" id="plantRow">
+                    </div>
+
+
+                    <!-- MEMORIES -->
+
+                    <div class="memory-section-heading">
+
+                        <div>
+                            <span class="eyebrow">
+                                YOUR MEMORIES
+                            </span>
+
+                            <h2>
+                                Moments you've kept.
+                            </h2>
+                        </div>
+
+                    </div>
+
+
+                    <div class="memory-list" id="memoryList">
+                    </div>
+
+
+                    <!-- EMPTY GARDEN -->
+
+                    <div class="empty-garden" id="emptyGarden">
+
+                        <div class="empty-garden-icon">
+                            🌱
+                        </div>
+
+                        <h2>
+                            Your garden is waiting.
+                        </h2>
+
+                        <p>
+                            Complete your first MemoryWalk and save
+                            the moment here.
+                        </p>
+
+                        <button class="primary-button" id="firstMissionBtn" type="button">
+
+                            <span>Take my first walk</span>
+                            <span>→</span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
